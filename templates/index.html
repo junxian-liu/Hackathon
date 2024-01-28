@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <meta charset="UTF-8">
     <title>User Input Form</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
-<form name="passData" action="." method="post">
-    <label>Enter a ticker:</label>
-<input type="text" name="ticker">
-        <input type="submit" value="submit">
-</form>
 
-<h1>{{ind}}</h1>
+<body>
+    <div class='navigation'>
+        <div class="title">
+            <a href="/" style="text-decoration: none; color: white;">FinScrap</a>
+        </div>
+        <div class="navButtons">
+            <a href="/features" style="text-decoration: none; color: white;">Features</a>
+            <a href="/about" style="text-decoration: none; color: white;">About Us</a>
+            <a href="https://finance.yahoo.com/" style="text-decoration: none; color: white;">View Market </a>
+        </div>
+    </div>
+    <form name="passData" action="." method="post">
+        <label>Search Stock Anaylsis</label>
+        <input type="text" name="ticker" placeholder="Enter a ticker...">
+        <input type="submit" value="submit">
+    </form>
+    <p>{{ind}}</p>
+    <img src="{{ url_for('static', filename='images/happy.png') }}" alt="Happy Image">
 </body>
+
 </html>
