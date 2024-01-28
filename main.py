@@ -29,10 +29,14 @@ def getIndicator(ticker):
     company = finance.similarCompany(ticker)
     financial = finance.analysis(company)
 
+    #income
+    income_sheet = income.technical(ticker)
+
     indicators.append(sma)
     indicators.append(ema)
     indicators.append(rsi)
     indicators.append(financial)
+    indicators.append(income_sheet)
     
     ind = sum(indicators) / len(indicators)
     return ind

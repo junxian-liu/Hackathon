@@ -23,7 +23,7 @@ def financial(ticker):
         quarter_df[col] = quarter_df[col].apply(convert_to_float)
 
     quarter_df.reset_index()
-    consolidated_df = quarter_df[['Sales/Revenue', 'Sales Growth', 'Gross Income', 'Basic Shares Outstanding']]
+    consolidated_df = quarter_df[['Sales/Revenue', 'Sales Growth', 'Gross Income']].drop(quarter_df.index[0])
 
     return consolidated_df
 
@@ -42,3 +42,30 @@ def convert_to_float(item):
         return float(item[:-1]) / 100
     else:
         return float(item)
+    
+def technical(ticker):
+
+    company = financial(ticker)
+    indicator = 0
+
+    sales_rev = company.get('Sales/Revenue')
+    sales_growth = company.get('Sales Growth')
+    gross_income = company.get('Gross Income')
+
+    if(sales_rev[0] > sales_rev[len(sales_rev) - 1]):
+        indicator = 0.5
+    else:
+        indicator = -0.5
+
+    if(sales_growth[0] > sales_growth[len(sales_growth) - 1]):
+        indicator = indicator + 0.3
+    else:
+        indicator = indicator - 0.3
+
+    if(gross_income[0] > gross_income[len(gross_income) - 1]):
+        indicator = indicator + 0.2
+    else:
+        indicator = indicator - 0.2
+    
+
+    return indicator
