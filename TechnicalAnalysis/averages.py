@@ -6,6 +6,7 @@ import json
 import time
 from typing import cast
 from urllib3 import HTTPResponse
+import config
 
 
 def getData(ticker):

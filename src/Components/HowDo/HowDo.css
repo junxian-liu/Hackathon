@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+}
+
+.howcard {
+    width: 100%;
+    margin: auto;
+    padding: 4rem;
+    background: #050505;
+}
+
+.howcard h1 {
+    font-size: 40px;
+    color: #fd5c63;
+    margin-top: -100px;
+    margin-bottom: 50px;
+    margin-left: 745px;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.parkings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.parking {
+    color: white;
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(256, 256, 256, 0.17);
+    -webkit-filter: drop-shadow(0 6px 20px rgba(256, 256, 256, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(256, 256, 256, 0.017));
+    border-radius: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.bullStocks img{
+    position: relative;
+    margin-top: 70px;
+    margin-left: 825px;
+    height: 150px;
+}
+
+.parking:hover{
+    border-color: white;
+}
+
+.copyright {
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: -1850px;
+    margin-left: 785px;
+    font-size: 10px;
+    color: #F9F6EE;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 960px) {
+    .howcard > h1 {
+        font-size: 30px;
+        margin-left: 300px;
+    }
+    .bullStocks img{
+        margin-top: 70px;
+        margin-left: 340px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .howcard > h1 {
+        font-size: 30px;
+        margin-top: 0px;
+        margin-left: 40px;
+    }
+}

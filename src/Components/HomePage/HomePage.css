@@ -1,0 +1,163 @@
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    -o-filter: blur(9px);
+    filter: blur(9px);
+    transform: scale(1.5);
+}
+
+.container {
+    height: 91vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0);
+    object-fit: contain;
+}
+
+.container > h1 {
+    color: #F9F6EE;
+    font-size: 50px;
+    margin-top: -100px;
+    margin-left: 25px;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+}
+
+.container > h2 {
+    color: #DAA520;
+    font-size: 30px;
+    margin-top: -20px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+}
+
+.container > p {
+    margin-top: -10px;
+    color: #F9F6EE;
+    font-size: 25px;
+    margin-left: 25px;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+    
+}
+
+.container > a {
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 25px;
+    background-color: transparent;
+    color: #F9F6EE ;
+    padding: 8px 20px;
+    border: 1px solid;
+    transition: all 0.5s ease-out;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+}
+
+.container > a:hover {
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+    background: rgb(255,255,255,0.8);
+    transition: 0.8s;
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: 70px;
+    margin-left: 25px;
+    font-size: 25px;
+    color: #F9F6EE;
+    font-weight: bold;
+}
+
+.ucsd_logo img {
+    width: 155px;
+    height: auto; 
+    position: absolute;
+    bottom: 30px;
+    margin-left: -180px;
+    color: white ;
+    background-color: white;
+    padding: 9px 20px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.lpl_logo img {
+    width: 165px;
+    height: auto; 
+    position: absolute;
+    bottom: 30px;
+    margin-left: 45px;
+    color: white ;
+    background-color: white;
+    padding: 13px 20px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.container img:hover{
+    box-shadow: 10px 10px 5px #888888;
+    -moz-box-shadow: 0px 10px 5px #888888;
+    -webkit-box-shadow: 0px 10px 5px #888888;    
+}
+
+@media screen and (max-width: 960px) {
+    .container > h1 {
+        font-size: 40px;
+        margin-top: -150px;
+        margin-left: 5px;
+    }
+    .container > p {
+        font-size: 18px;
+        margin-top: -5px;
+    }
+
+    .bottom-text {
+        position: absolute;
+        bottom: 70px;
+        margin-left: 0px;
+        font-size: 25px;
+        color: #F9F6EE;
+        font-weight: bold;
+    }
+    .ucsd_logo img {
+        width: 135px;
+        height: auto; 
+        position: absolute;
+        bottom: 30px;
+        margin-left: -180px;
+        color: white ;
+        background-color: white;
+        padding: 9px 20px;
+        border-radius: 10px;
+        border: 1px solid;
+    }
+    
+    .lpl_logo img {
+        width: 145px;
+        height: auto; 
+        position: absolute;
+        bottom: 30px;
+        margin-left: 40px;
+        color: white ;
+        background-color: white;
+        padding: 13px 20px;
+        border-radius: 10px;
+        border: 1px solid;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .container > h1 {
+        font-size: 30px;
+        margin-top: -150px;
+    }
+}
