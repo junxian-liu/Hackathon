@@ -1,0 +1,52 @@
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+  
+.title {
+    letter-spacing: 1px;
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.title a {
+  font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+  transition: all 0.5s ease-out;
+}
+
+.title a:hover {
+  color:#00FF7F;
+  cursor: pointer;
+  transition: .3s;
+}
+  
+.navButtons {
+  letter-spacing: 1px;
+    color: white;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.navButtons a {
+  margin-left: 16px;
+  font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+  transition: all 0.5s ease-out;
+}
+
+.navButtons a:hover {
+  font-size: 22px;
+  cursor: pointer;
+  transition: .5s;
+}
