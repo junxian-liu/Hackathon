@@ -39,8 +39,9 @@ def getData(ticker):
     return closingPrice
 
             
-def getIndicator(closingPrice):
+def getIndicator(ticker):
     # Getting SMA (10)
+    closingPrice = getData(ticker)
     df = pd.DataFrame({'Price' : closingPrice})
     window_size_10 = 10
     df['SMA-10'] = df['Price'].rolling(window=window_size_10).mean()
@@ -61,34 +62,69 @@ def getIndicator(closingPrice):
     lastSMA50 = sma_50[len(sma_50) - 1]
     
     if(lastPrice > lastSMA10 and lastPrice > lastSMA50):
-        indicator = 0.1
+        indicator = 0.3
     elif (lastPrice < lastSMA10 and lastPrice < lastSMA50):
-        indicator = -0.1
+        indicator = -0.3
     else:
         indicator = 0
 
     return indicator
 
 
-def getEMA(closingPrice):
+def getEMA(ticker):
+
+    closingPrice = getData(ticker)
 
     df = pd.DataFrame({'Price' : closingPrice})
 
-    #Getting EMA 12
-    df_8 = df.iloc[-12:]
-    nan = np.empty(22)
-    nan.fill(np.nan)
-    zero = nan.tolist()
-    EMA_8 = zero + df_8['Price'].ewm(com = 0.4, adjust=False).mean().tolist()
+    ema_values = []
+    alpha = 2 / 51  # EMA smoothing factor
 
-    #Getting EMA 26
-    df_20 = df.iloc[-26:]
-    nan_list = np.empty(10)
-    nan_list.fill(np.nan)
-    zeros = nan_list.tolist()
-    EMA_20 = zeros + df_20['Price'].ewm(com = 0.4, adjust=False).mean().tolist()
+    # Calculate initial EMA using SMA
+    sma = sum(closingPrice[:50]) / 50
+    ema_values.append(sma)
+
+    # Calculate EMA for the remaining data points
+    for i in range(50, len(closingPrice)):
+        ema = (closingPrice[i] - ema_values[-1]) * alpha + ema_values[-1]
+        ema_values.append(ema)
+
+    last100_ema = ema_values[-100:]
+    last100_price = closingPrice[-100:]
+    counter = 0
+    count = 0
+    
+    for num in last100_ema:
+        if (num - last100_price[count] > 0):
+            counter += 1
+
+        count += 1
+    
+    if(counter > 75):
+        indicator = 0.4
+    else:
+        indicator = -0.4
+
+def calculate_rsi(closingPrice):
+    delta = closingPrice.diff()
+    window = 7
+    gain = (delta.where(delta > 0, 0)).rolling(window=window).mean()
+    loss = (-delta.where(delta < 0, 0)).rolling(window=window).mean()
+
+    rs = gain / loss
+    rsi = 100 - (100 / (1 + rs))
 
 
-close = getData('TSLA')
-getIndicator(close)
+    # Checking if RSI is in oversold or overvalued range
+    all_above_threshold = all(x > 70 for x in rsi[-30:])
+    all_below_threshold = all(x <  30 for x in rsi[-30:])
+
+    if(all_above_threshold):
+        indicator = 0.6
+
+    if(all_below_threshold):
+        indicator = -0.6
+
+    return indicator
+
 # %%

@@ -1,6 +1,7 @@
+import pandas as pd
+import numpy as np
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 
 def getSingleCompany(ticker):
     url = f"https://finance.yahoo.com/quote/{ticker}?p={ticker}"
@@ -11,7 +12,7 @@ def getSingleCompany(ticker):
     similar = s.find('section', id = 'similar-by-symbol')
     companys = similar.find_all('a', class_= 'Fw(b) Ell D(b) C($linkColor) Pos(r) Z(2)')
 
-    company_similar_ticker = []
+    company_similar_ticker = [ticker]
     len(companys)
 
     for i in range(len(companys)):
@@ -53,6 +54,35 @@ def similarCompany(similar):
 
         similar_dict = {'Tickers': company_similar_ticker, 'Company Name': company_name, 'Current Price': curr_price, 'Market Cap': mar_cap, 'P/E Ratio': per, 'EPS': earnings}
         similar_df = pd.DataFrame(similar_dict)
+        per = similar_df.get('Current Price').astype(float) / similar_df.get('EPS').astype(float)
+        similar_df['P/E Ratio']= per
         
         return similar_df
 
+def analysis(df):
+    company = df
+    
+    main_PE = df.iloc['P/E Ratio', 0]
+    main_EPS = df.iloc['EPS', 0]
+
+    if((main_PE < 0) or (main_EPS < 0)):
+        indicator = -0.8
+
+    #Comparing EPS against similar companies
+    eps_comparison = main_EPS > df.get('EPS')
+    if(eps_comparison.sum() > len(eps_comparison) * 0.8):
+        print(eps_comparison.sum(), len(eps_comparison) * 0.66)
+        indicator = 0.3
+
+    if(main_PE > 0.25):
+        if(indicator != 0):
+            indicator = indicator * 0.5
+        else:
+            indicator = -0.2
+    else:
+        if(indicator != 0):
+            indicator = indicator * 2
+        else:
+            indicator = 0.2
+
+    return indicator
