@@ -1,8 +1,7 @@
 from bs4 import BeautifulSoup
 import pandas as pd
 from flask import Flask, request, render_template
-from TechnicalAnalysis import averages, finance
-from . import income
+from TechnicalAnalysis import averages, finance, income
 
 app = Flask(__name__)
 
@@ -17,10 +16,17 @@ def getValue():
     indicator = getIndicator(ticker)
     #Indicator
     ind = sum(indicator) / len(indicator)
+    if(ind > 0.2):
+        ind_name = "BUY🚀"
+    elif(ind > -0.2):
+        ind_name = "HOLD🙉"
+    else:
+        ind_name = "SELL🥱"
     #Statement summarizing analysis
     statement = financialReports(ind, indicator, ticker)
     #Send values back to website
-    return render_template('index.html', ind = indicator)
+    img_path = "url_for('static', filename='images/happy.png')"
+    return render_template('index.html', ind_val = ind_name, state = statement)
      
 
 def getIndicator(ticker):

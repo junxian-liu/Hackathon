@@ -23,24 +23,12 @@
         <input type="text" name="ticker" placeholder="Enter a ticker...">
         <input type="submit" value="submit">
     </form>
-    <p>{{ind}}</p>
-    <img src="{{ url_for('static', filename='images/happy.png') }}" alt="Happy Image">
+    <div class="status">
+        <h1>{{ind_val}}</h1>
+    </div>
+    <div class="analysis">
+        <p>{{state}}</p>
+    </div>
 </body>
 
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seaborn Plot</title>
-</head>
-<body>
-    <h1>Seaborn Plot</h1>
-    
-    <!-- Include the saved image -->
-    <img src = "C:\Users\HP\Desktop\Hackathon\seaborn_plot.png" alt = "Seaborn Plot">
-</body>
 </html>
