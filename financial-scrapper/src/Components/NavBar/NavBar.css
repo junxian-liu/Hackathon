@@ -1,0 +1,34 @@
+.navigation {
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+  
+.title {
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+  
+.navButtons {
+    color: white;
+    font-size: 20px;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.navButtons a {
+  margin-left: 16px;
+  transition: all 0.5s ease-out;
+}
+
+.navButtons a:hover {
+  font-size: 22px;
+  cursor: pointer;
+  transition: .5s;
+}
