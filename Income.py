@@ -30,8 +30,7 @@ import numpy as np
 #     return quarter_df
 
 
-def financial():
-    ticker = input('Enter stock: ')
+def financial(ticker):
     URL = f'https://www.marketwatch.com/investing/stock/{ticker}/financials/income/quarter'
     html = requests.get(URL)
     soup = BeautifulSoup(html.content, "html.parser")
