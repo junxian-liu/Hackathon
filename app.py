@@ -20,7 +20,7 @@ def run_algorithm():
         print('Received data:', data)
         result = process_data(data)
         print('Result:', result)
-        return jsonify({'result': result})
+        return jsonify({'result': result}) # where dictionary comes from
     except Exception as e:
         return jsonify({'error': str(e)})
     
