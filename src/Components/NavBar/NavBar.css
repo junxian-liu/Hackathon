@@ -34,7 +34,7 @@
   letter-spacing: 1px;
     color: white;
     font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
-    font-size: 20px;
+    font-size: 21px;
     margin-right: 16px;
     text-decoration: none;
 }
@@ -46,7 +46,7 @@
 }
 
 .navButtons a:hover {
-  font-size: 22px;
+  font-size: 23px;
   cursor: pointer;
   transition: .5s;
 }

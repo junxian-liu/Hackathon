@@ -32,7 +32,7 @@ function HowDo() {
             }
         </div>
         <div className = "copyright">
-                <p> Ⓒ2024 MV Trap. No Rights Reserved LOL </p>
+                <p> Ⓒ2024 FinScrap. No Rights Reserved. </p>
         </div>
         <div className = "bullStocks">
                 <img src={bullStocks} alt=''/>

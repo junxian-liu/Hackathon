@@ -65,7 +65,7 @@ video {
     cursor: pointer;
     color: black;
     background: rgb(255,255,255,0.8);
-    transition: 0.55s;
+    transition: 0.8s;
 }
 
 .bottom-text {

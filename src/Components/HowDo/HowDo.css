@@ -59,9 +59,10 @@ section {
 }
 
 .copyright {
+    letter-spacing: 1px;
     position: absolute;
     bottom: -1850px;
-    margin-left: 795px;
+    margin-left: 785px;
     font-size: 10px;
     color: #F9F6EE;
     font-weight: bold;
