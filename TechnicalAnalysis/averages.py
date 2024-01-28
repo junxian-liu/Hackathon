@@ -1,5 +1,4 @@
 # %%
-import config
 from polygon import RESTClient
 import pandas as pd
 import numpy as np
@@ -11,7 +10,7 @@ from urllib3 import HTTPResponse
 
 def getData(ticker):
     tick = ticker
-    client = RESTClient(config.api_key)
+    client = RESTClient('Ao9fHerRTi5M9GteFUozhRdOasDXUXfN')
     aggs = cast(
         HTTPResponse,
         client.get_aggs(
@@ -105,7 +104,8 @@ def getEMA(ticker):
     else:
         indicator = -0.4
 
-def calculate_rsi(closingPrice):
+def calculate_rsi(ticker):
+    closingPrice = pd.Series(getData(ticker))
     delta = closingPrice.diff()
     window = 7
     gain = (delta.where(delta > 0, 0)).rolling(window=window).mean()
@@ -121,9 +121,12 @@ def calculate_rsi(closingPrice):
 
     if(all_above_threshold):
         indicator = 0.6
-
+    else:
+        indicator = 0.2
     if(all_below_threshold):
         indicator = -0.6
+    else:
+        indicator = -0.2
 
     return indicator
 

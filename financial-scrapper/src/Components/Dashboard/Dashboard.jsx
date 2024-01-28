@@ -22,4 +22,14 @@ const TickerInput = (event) => {
     </div>
   );
 }
+
 export default Ticker;
+const{PythonShell} = require('python-shell')
+let options = {
+  scriptPath: 'E:/hackathon',
+  args: [Ticker],
+};
+PythonShell.run('main.py', options, (err, res) => {
+  if (err) console.log(err);
+  if (res) console.log(res)
+})
