@@ -39,7 +39,7 @@ def getData(ticker):
     return closingPrice
 
             
-def getIndicator(ticker):
+def getSMA(ticker):
     # Getting SMA (10)
     closingPrice = getData(ticker)
     df = pd.DataFrame({'Price' : closingPrice})
