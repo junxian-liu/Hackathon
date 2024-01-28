@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import pandas as pd
 from flask import Flask, request, render_template
-from TechnicalAnalysis import averages, finance, income
+from TechnicalAnalysis import averages, finance
+from . import income
 
 app = Flask(__name__)
 

@@ -2,6 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
+from TechnicalAnalysis import averages
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 
 def financial(ticker):
     URL = f'https://www.marketwatch.com/investing/stock/{ticker}/financials/income/quarter'
@@ -43,8 +47,8 @@ def convert_to_float(item):
     else:
         return float(item)
     
+    
 def technical(ticker):
-
     company = financial(ticker)
     indicator = 0
 
@@ -66,6 +70,21 @@ def technical(ticker):
         indicator = indicator + 0.2
     else:
         indicator = indicator - 0.2
-    
-
     return indicator
+
+
+def visualizations(firm):
+    firm_arr = averages.getData(firm)
+    firm_df = pd.DataFrame({"Days after 2023-01-01": np.arange(len(firm_arr)),
+              "Closing Stock Price": firm_arr})
+    
+    sns.set(style='whitegrid');
+    sns.lmplot(x = 'Days after 2023-01-01', 
+           y = 'Closing Stock Price', 
+           data = firm_df, height=4.55, 
+           aspect=1.3, line_kws={"color": "red"});
+    
+    # Save the plot as an image file (e.g., PNG)
+    plt.savefig('seaborn_plot.png')
+    return None
+
