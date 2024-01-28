@@ -1,32 +1,41 @@
 .cards {
     padding: 4rem;
-    background: #fff;
+    background: #050505;
 }
 
-h2 {
+.cards h2 {
     letter-spacing: 1px;
     font-size: 20px;
-    margin-left: 150px;
+    margin-left: 110px;
     font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
-    background: linear-gradient(to right,#74D680, #FF0000);
+    background: #00FF7F;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
 
-h1 {
-    font-size: 30px;
-    margin-top: 0px;
-    margin-left: 150px;
+.cards h1 {
+    font-size: 35px;
+    color: #fff;
+    margin-top: -7px;
+    margin-left: 110px;
+    margin-bottom: 30px;
     font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
 }
 
+.stockGif img{
+    position: relative;
+    margin-top: 70px;
+    margin-left: 490px;
+    height: 150px;
+}
+
 .cards__container {
+    margin-left: 320px;
     display: flex;
     flex-flow: column;
     align-items: center;
     max-width: 1120px;
     width: 90%;
-    margin: 0 auto;
 }
   
 .cards__wrapper {
@@ -37,16 +46,17 @@ h1 {
 .cards__items {
     margin-bottom: 24px;
 }
-  
+
 .cards__item {
     display: flex;
     flex: 1;
-    margin: 0 1rem;
+    margin: 0 2rem;
     flex-flow: column;
     width: 100%;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    margin-left: 10px;
+    box-shadow: 0 6px 20px rgba(256, 256, 256, 0.17);
+    -webkit-filter: drop-shadow(0 6px 20px rgba(256, 256, 256, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(256, 256, 256, 0.017));
     border-radius: 30px;
     overflow: hidden;
     text-decoration: none;
@@ -74,10 +84,12 @@ h1 {
     padding: 6px 8px;
     max-width: calc((100%) - 60px);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: bold;
     color: #fff;
-    background-color: #1f98f4;
+    background: #FF3131;
     box-sizing: border-box;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
 }
   
 .cards__item__img {
@@ -104,13 +116,14 @@ h1 {
 }
   
 .cards__item__info {
-    padding: 20px 30px 30px;
+    padding: 10px 30px 10px;
 }
   
 .cards__item__text {
-    color: #252e48;
+    color: white;
     font-size: 18px;
     line-height: 24px;
+    font-family: Tahoma, 'Arial Narrow Bold', sans-serif;
 }
   
 @media only screen and (min-width: 1200px) {
@@ -122,28 +135,32 @@ h1 {
 @media only screen and (min-width: 1024px) {
     .cards__items {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        margin: 0 1rem;
     }
 }
   
 @media only screen and (max-width: 1024px) {
     .cards__item {
-        flex: 0 0 33.33%;
         width: 50%;
-        margin: 1rem;
+        margin-left: -130px;
+        margin-bottom: 1rem;
+    }
+
+    .stockGif img{
+        margin-top: 70px;
+        margin-left: 20px;
+        height: 150px;
     }
 }
 
 @media screen and (max-width: 960px) {
     .cards > h1 {
         font-size: 25px;
-        margin-top: 0px;
         margin-left: 20px;
     }
     .cards > h2 {
         letter-spacing: 0.5px;
-        font-size: 15px;
+        font-size: 18px;
         margin-left: 20px;
     }
 }
