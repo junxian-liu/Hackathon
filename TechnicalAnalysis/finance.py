@@ -76,16 +76,16 @@ def analysis(df):
     eps_comparison = main_EPS > df.get('EPS').astype(float)
     if(eps_comparison.sum() > len(eps_comparison) * 0.8):
         print(eps_comparison.sum(), len(eps_comparison) * 0.66)
-        indicator = 0.6
+        indicator = 0.7
 
     if(main_PE > 0.25):
         if(indicator != 0):
-            indicator = indicator * 0.5
+            indicator = indicator * 0.75
         else:
             indicator = -0.6
     else:
         if(indicator != 0):
-            indicator = indicator * 2
+            indicator = indicator * 1.5
         else:
             indicator = 0.6
 

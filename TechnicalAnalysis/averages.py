@@ -61,9 +61,9 @@ def getSMA(ticker):
     lastSMA50 = sma_50[len(sma_50) - 1]
     
     if(lastPrice > lastSMA10 and lastPrice > lastSMA50):
-        indicator = 0.4
+        indicator = 0.5
     elif (lastPrice < lastSMA10 and lastPrice < lastSMA50):
-        indicator = -0.4
+        indicator = -0.5
     else:
         indicator = 0
 
@@ -100,9 +100,9 @@ def getEMA(ticker):
         count += 1
     
     if(counter > 75):
-        indicator = 0.4
+        indicator = 0.5
     else:
-        indicator = -0.4
+        indicator = -0.5
 
     return indicator
 
@@ -122,13 +122,11 @@ def calculate_rsi(ticker):
     all_below_threshold = all(x <  30 for x in rsi[-30:])
 
     if(all_above_threshold):
-        indicator = 0.6
+        indicator = 0.7
+    elif(all_below_threshold):
+        indicator = -0.7
     else:
-        indicator = 0.2
-    if(all_below_threshold):
-        indicator = -0.6
-    else:
-        indicator = -0.2
+        indicator = 0
 
     return indicator
 
