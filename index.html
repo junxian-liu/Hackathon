@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Connection</title>
+</head>
+<body>
+    <h1>Flask Connection</h1>
+    <input type="text" id="inputData" placeholder="Enter data">
+    <button onclick="sendData()">Send Data</button>
+
+    <script>
+        function sendData() {
+            // Get input value
+            var inputData = document.getElementById("inputData").value;
+
+            // Send data to Flask backend
+            fetch('http://localhost:5000/run_algorithm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({input: inputData}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response from Flask backend:', data);
+            })
+            .catch(error => {
+                console.error('Error sending data:', error);
+            });
+        }
+    </script>
+</body>
+</html>
