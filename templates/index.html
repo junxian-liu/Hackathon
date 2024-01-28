@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>User Input Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 <form name="passData" action="." method="post">
@@ -11,5 +12,6 @@
         <input type="submit" value="submit">
 </form>
 
+<h1>{{ind}}</h1>
 </body>
 </html>

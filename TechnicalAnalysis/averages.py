@@ -61,9 +61,9 @@ def getSMA(ticker):
     lastSMA50 = sma_50[len(sma_50) - 1]
     
     if(lastPrice > lastSMA10 and lastPrice > lastSMA50):
-        indicator = 0.3
+        indicator = 0.4
     elif (lastPrice < lastSMA10 and lastPrice < lastSMA50):
-        indicator = -0.3
+        indicator = -0.4
     else:
         indicator = 0
 
@@ -103,6 +103,8 @@ def getEMA(ticker):
         indicator = 0.4
     else:
         indicator = -0.4
+
+    return indicator
 
 def calculate_rsi(ticker):
     closingPrice = pd.Series(getData(ticker))

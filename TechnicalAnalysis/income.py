@@ -22,7 +22,10 @@ def financial(ticker):
     for col in quarter_df.columns:
         quarter_df[col] = quarter_df[col].apply(convert_to_float)
 
-    return quarter_df.reset_index()
+    quarter_df.reset_index()
+    consolidated_df = quarter_df[['Sales/Revenue', 'Sales Growth', 'Gross Income', 'Basic Shares Outstanding']]
+
+    return consolidated_df
 
 
 # Helper Function
